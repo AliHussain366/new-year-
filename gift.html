@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Virtual Gifts - Happy New Year 2024</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #333;
+      color: white;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #FFD93D;
+      margin-top: 50px;
+      text-shadow: 0 0 10px #FFD93D, 0 0 20px #FFD93D, 0 0 30px #FFD93D;
+      animation: glowing 1.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes glowing {
+      0% { text-shadow: 0 0 10px #FFD93D, 0 0 20px #FFD93D, 0 0 30px #FFD93D; }
+      50% { text-shadow: 0 0 20px #FFD93D, 0 0 40px #FFD93D, 0 0 60px #FFD93D; }
+      100% { text-shadow: 0 0 30px #FFD93D, 0 0 50px #FFD93D, 0 0 80px #FFD93D; }
+    }
+
+    .gift-container {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      padding: 30px;
+    }
+
+    .gift-item {
+      background: #444;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+      width: 250px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gift-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
+    }
+
+    .gift-item img {
+      width: 100%;
+      border-radius: 10px;
+      height: 180px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .gift-item img:hover {
+      transform: scale(1.1);
+    }
+
+    .gift-item h3 {
+      font-size: 1.2rem;
+      margin-top: 10px;
+      color: #FFD93D;
+    }
+
+    .gift-item button {
+      padding: 10px;
+      background-color: #FF6B6B;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .gift-item button:hover {
+      background-color: #FFD93D;
+      transform: scale(1.05);
+    }
+
+    .gift-box {
+      width: 250px;
+      height: 250px;
+      background-color: #FF6B6B;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+      margin: 40px auto;
+      cursor: pointer;
+      position: relative;
+      animation: bounce 0.5s ease-in-out infinite alternate;
+    }
+
+    .gift-box::before {
+      content: "🎁";
+      font-size: 4rem;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      animation: pulse 2s ease-out infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1) translate(-50%, -50%); }
+      50% { transform: scale(1.2) translate(-50%, -50%); }
+      100% { transform: scale(1) translate(-50%, -50%); }
+    }
+
+    @keyframes bounce {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
+    /* Confetti Animation */
+    .confetti {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      pointer-events: none;
+      display: none;
+    }
+
+    .confetti div {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: #FFD93D;
+      animation: fall 3s linear infinite;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-100vh); }
+      100% { transform: translateY(100vh); }
+    }
+
+    /* Mobile Responsiveness */
+    @media screen and (max-width: 768px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      .gift-container {
+        padding: 20px;
+      }
+
+      .gift-item {
+        width: 90%;
+      }
+
+      .gift-box {
+        width: 200px;
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Virtual Gifts - Happy New Year 2024!</h1>
+
+  <div class="gift-container">
+    <div class="gift-item">
+      <img src="all friend.jpg" alt="All friends">
+      <h3>All friends</h3>
+      <button onclick="sendGift('All friends')">All friends</button>
+    </div>
+
+    <div class="gift-item">
+      <img src="islamic alihussain.jpg" alt="Gift Voucher">
+      <h3>Website Owner</h3>
+      <button onclick="sendGift('Gift Voucher')">Website Owner</button>
+    </div>
+
+    <div class="gift-item">
+      <img src="ali.jpg" alt="Digital Art">
+      <h3>Ali hussain </h3>
+      <button onclick="sendGift('Digital Art')">Ali Hussain</button>
+    </div>
+  </div>
+
+  <div class="gift-box" onclick="openGiftBox()"></div>
+
+  <!-- Confetti Animation -->
+  <div class="confetti" id="confetti"></div>
+
+  <script>
+    function sendGift(gift) {
+      alert("You've selected: " + gift);
+    }
+
+    function openGiftBox() {
+      const giftBox = document.querySelector('.gift-box');
+      giftBox.style.backgroundColor = "#FFD93D";
+      giftBox.querySelector('::before').style.content = "🎉 Surprise Unwrapped!";
+      showConfetti();
+      alert("Congratulations! You've unlocked a surprise gift!");
+    }
+
+    function showConfetti() {
+      const confettiContainer = document.getElementById('confetti');
+      confettiContainer.style.display = 'block';
+
+      for (let i = 0; i < 100; i++) {
+        const confettiPiece = document.createElement('div');
+        confettiPiece.style.left = `${Math.random() * 100}%`;
+        confettiPiece.style.animationDuration = `${Math.random() * 3 + 2}s`;
+        confettiContainer.appendChild(confettiPiece);
+      }
+    }
+  </script>
+
+</body>
+</html>

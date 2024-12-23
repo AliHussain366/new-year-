@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy New Year 2025</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1 class="main-header">Happy New Year 2025!</h1>
+    <div class="friend-banner">
+      <img src="ali.jpg" alt="Ali Hussain" class="profile-pic">
+      <img src="mubeen.jpg" alt="Mubeen" class="profile-pic">
+      <img src="wasi.jpg" alt="Wasi" class="profile-pic">
+      <img src="hamad.jpg" alt="Hammad" class="profile-pic">
+      <img src="hamid.jpg" alt="Hamid" class="profile-pic">
+    </div>
+  </header>
+
+  <main>
+    <section class="message-section">
+      <h2>Wishing you a joyous New Year filled with love, success, and happiness!</h2>
+      <div class="personal-greetings">
+        <div class="greeting">
+          <img src="ali.jpg" alt="Ali Hussain" class="profile-pic">
+          <p>Happy New Year! May 2024 bring you endless happiness and success!</p>
+        </div>
+        <div class="greeting">
+          <img src="mubeen.jpg" alt="Mubeen" class="profile-pic">
+          <p>Wishing you a bright and prosperous 2024!</p>
+        </div>
+        <div class="greeting">
+          <img src="wasi.jpg" alt="Wasi" class="profile-pic">
+          <p>May the New Year bring you peace and success!</p>
+        </div>
+        <div class="greeting">
+          <img src="hamad.jpg" alt="Hammad" class="profile-pic">
+          <p>Cheers to a year filled with joy and opportunities!</p>
+        </div>
+        <div class="greeting">
+          <img src="hamid.jpg" alt="Hamid" class="profile-pic">
+          <p>Wishing you a year full of adventures and memories!</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="video-section">
+      <h3>New Year Massage</h3>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/zsHYikfzSoI?si=BV6fw_fMCWKaGjFe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </section>
+    
+    <section class="gift-section">
+      <a href="gift.html" class="gift-link">Go to Gift Page</a>
+    </section>
+
+ 
+
+ 
+
+  <footer>
+    <p>Follow us on social media: 
+      <a href="https://fb.watch/wFtnbO4Nof/">Facebook</a> | 
+      <a href="whatsapp.com/channel/0029VarwCGZ1iUxYFKQhVl32">whatsapp</a>
+      <a href="https://youtu.be/wFJNrv3TT5o?si=qVb9ekK6sTXhmnuo">YouTube</a>
+    </p>
+    <p>&copy; 2024 by Ali Hussain and friends</p>
+    <p class="quote">"May your dreams come true in 2024. Wishing you a year full of happiness!"</p>
+  </footer>
+
+  
+
+  <!-- Background Music -->
+  <audio autoplay loop>
+    <source src="Tera Yaar Hoon Main.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Confetti Effect -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.min.js"></script>
+  <script>
+    // Confetti Effect
+    confetti({
+      particleCount: 200,
+      spread: 70,
+      origin: { x: 0.5, y: 0.5 }
+    });
+
+    // Countdown Timer Script
+    function updateCountdown() {
+      const now = new Date();
+      const newYear = new Date("2024-01-01T00:00:00Z");
+      const timeLeft = newYear - now;
+
+      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown-timer").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+    setInterval(updateCountdown, 1000);
+
+    // Popup function
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+    }
+    window.onload = () => {
+      document.getElementById("popup").style.display = "block";
+    };
+
+    // Send Wishes function
+    const sendWishesButton = document.getElementById("send-wishes");
+    const wishesWall = document.getElementById("wishes-wall");
+
+    sendWishesButton.addEventListener("click", () => {
+      const wish = prompt("Enter your New Year wish:");
+      if (wish) {
+        const wishElement = document.createElement("div");
+        wishElement.textContent = wish;
+        wishElement.style.margin = "10px 0";
+        wishElement.style.fontSize = "1.2em";
+        wishElement.style.color = "green";
+        wishesWall.appendChild(wishElement);
+      }
+    });
+  </script>
+</body>
+</html>
